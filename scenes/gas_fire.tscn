@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg6l8p6x4a4po"]
+
+[ext_resource type="Texture2D" uid="uid://i1el1ln5m03y" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Effects/PNGs/Asteroid - Flame.png" id="1_xmsi7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khy2p"]
+atlas = ExtResource("1_xmsi7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v7jt"]
+atlas = ExtResource("1_xmsi7")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82pr6"]
+atlas = ExtResource("1_xmsi7")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gj2a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khy2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v7jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82pr6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="gas_fire" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-18.5, -18.5)
+scale = Vector2(0.614583, 0.614583)
+sprite_frames = SubResource("SpriteFrames_0gj2a")
+autoplay = "default"
+frame_progress = 0.0559738

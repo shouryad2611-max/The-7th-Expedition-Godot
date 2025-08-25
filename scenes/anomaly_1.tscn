@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://xyl7t0w8ec4u"]
+
+[ext_resource type="Texture2D" uid="uid://djwsfshsppbp4" path="res://assets/radio_object.png" id="1_jhne6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcv6j"]
+size = Vector2(32, 24)
+
+[node name="anomaly_1" type="Area2D" groups=["anomaly"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jhne6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rcv6j")

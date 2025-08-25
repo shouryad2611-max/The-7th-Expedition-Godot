@@ -1,0 +1,137 @@
+[gd_scene load_steps=20 format=3 uid="uid://chudnmn2v5xfj"]
+
+[ext_resource type="Texture2D" uid="uid://drd8rdygyuhgm" path="res://assets/SpaceStationAda/SpaceStation_Turret_Sheet.png" id="1_n8526"]
+[ext_resource type="Script" uid="uid://3wg25cpys6lt" path="res://scripts/anomaly_2.gd" id="1_uiees"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmabp"]
+atlas = ExtResource("1_n8526")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cya8q"]
+atlas = ExtResource("1_n8526")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1qbc"]
+atlas = ExtResource("1_n8526")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n6jb"]
+atlas = ExtResource("1_n8526")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlgta"]
+atlas = ExtResource("1_n8526")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uksm2"]
+atlas = ExtResource("1_n8526")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_surfb"]
+atlas = ExtResource("1_n8526")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqsdt"]
+atlas = ExtResource("1_n8526")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyfmh"]
+atlas = ExtResource("1_n8526")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8yhm"]
+atlas = ExtResource("1_n8526")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yolmw"]
+atlas = ExtResource("1_n8526")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2mw3"]
+atlas = ExtResource("1_n8526")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u24tp"]
+atlas = ExtResource("1_n8526")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dfb1"]
+atlas = ExtResource("1_n8526")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tha3e"]
+atlas = ExtResource("1_n8526")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qmud"]
+atlas = ExtResource("1_n8526")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxhb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmabp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cya8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1qbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n6jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlgta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uksm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_surfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqsdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyfmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8yhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yolmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2mw3")
+}],
+"loop": true,
+"name": &"firing_turret",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u24tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dfb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tha3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qmud")
+}],
+"loop": true,
+"name": &"normal_turret",
+"speed": 3.0
+}]
+
+[node name="anomaly_2" type="Area2D" groups=["anomaly"]]
+script = ExtResource("1_uiees")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cxhb2")
+animation = &"normal_turret"
+autoplay = "normal_turret"

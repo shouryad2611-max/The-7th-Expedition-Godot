@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://p6c4077kjf41"]
+
+[ext_resource type="Texture2D" uid="uid://cixk8s4h4m4fg" path="res://assets/blur_bg.png" id="1_nguvh"]
+[ext_resource type="FontFile" uid="uid://bi7l0mmnx2imk" path="res://assets/fonts/Ethnocentric Rg.otf" id="2_6o67o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dgnnt"]
+texture = ExtResource("1_nguvh")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40ufr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2eguc"]
+bg_color = Color(0.646029, 0.646029, 0.646029, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44s7v"]
+bg_color = Color(0.446777, 0.446777, 0.446777, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m6f2"]
+bg_color = Color(0.753984, 0.753984, 0.753984, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="pause_menu" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dgnnt")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 75.0
+offset_right = 129.0
+offset_bottom = 151.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 8
+theme_override_fonts/font = ExtResource("2_6o67o")
+theme_override_font_sizes/font_size = 60
+text = "PAUSED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -66.0
+offset_right = 137.5
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+
+[node name="resume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6o67o")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_40ufr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2eguc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_44s7v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0m6f2")
+text = "RESUME"
+
+[node name="main_menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6o67o")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/focus = SubResource("StyleBoxEmpty_40ufr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2eguc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_44s7v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0m6f2")
+text = "MAIN MENU"
+
+[node name="button_audio" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="mouse_entered" from="VBoxContainer/resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/main_menu" to="." method="_on_main_menu_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]

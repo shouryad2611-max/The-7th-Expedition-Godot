@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddwxau2vsjhh5"]
+
+[ext_resource type="PackedScene" uid="uid://c31x1fxhecog8" path="res://scenes/arena.tscn" id="1_qau8k"]
+[ext_resource type="Script" uid="uid://ci7r6peg4yq42" path="res://scripts/world.gd" id="1_t68yf"]
+[ext_resource type="Texture2D" uid="uid://cixk8s4h4m4fg" path="res://assets/blur_bg.png" id="3_n3g1v"]
+[ext_resource type="FontFile" uid="uid://bi7l0mmnx2imk" path="res://assets/fonts/Ethnocentric Rg.otf" id="4_58svi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcj0d"]
+texture = ExtResource("3_n3g1v")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yvyhx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw06e"]
+bg_color = Color(0.646029, 0.646029, 0.646029, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbc6d"]
+bg_color = Color(0.446777, 0.446777, 0.446777, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ri0n"]
+bg_color = Color(0.753984, 0.753984, 0.753984, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_t68yf")
+
+[node name="arena" parent="." instance=ExtResource("1_qau8k")]
+process_mode = 1
+
+[node name="pause_menu" type="CanvasLayer" parent="."]
+process_mode = 2
+physics_interpolation_mode = 2
+visible = false
+
+[node name="Panel" type="Panel" parent="pause_menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wcj0d")
+
+[node name="Label" type="Label" parent="pause_menu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 75.0
+offset_right = 129.0
+offset_bottom = 151.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 8
+theme_override_fonts/font = ExtResource("4_58svi")
+theme_override_font_sizes/font_size = 60
+text = "PAUSED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -66.0
+offset_right = 137.5
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+
+[node name="resume" type="Button" parent="pause_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_58svi")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yvyhx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pw06e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jbc6d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ri0n")
+text = "RESUME"
+
+[node name="main_menu" type="Button" parent="pause_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_58svi")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yvyhx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pw06e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jbc6d")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ri0n")
+text = "MAIN MENU"
+
+[node name="button_audio" type="AudioStreamPlayer2D" parent="pause_menu"]
+
+[connection signal="mouse_entered" from="pause_menu/VBoxContainer/resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="pressed" from="pause_menu/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="pause_menu/VBoxContainer/main_menu" to="." method="_on_main_menu_mouse_entered"]
+[connection signal="pressed" from="pause_menu/VBoxContainer/main_menu" to="." method="_on_main_menu_pressed"]

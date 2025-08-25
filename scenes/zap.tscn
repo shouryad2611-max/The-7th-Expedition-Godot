@@ -1,0 +1,78 @@
+[gd_scene load_steps=17 format=3 uid="uid://dm00564lkmian"]
+
+[ext_resource type="Script" uid="uid://bpkl1s8u4xtqc" path="res://scripts/zap.gd" id="1_7ro13"]
+[ext_resource type="Texture2D" uid="uid://egdqkok6heyr" path="res://assets/Foozle_2DS0015_Void_EnvironmentPack/Asteroids/PNGs/Asteroid 01 - Explode.png" id="2_sai80"]
+[ext_resource type="Texture2D" uid="uid://dehf7s1t1fyu" path="res://assets/LightFX/FX003/FX003_01.png" id="3_1ytyc"]
+[ext_resource type="Texture2D" uid="uid://cmkhrpy8yaf6l" path="res://assets/LightFX/FX003/FX003_02.png" id="4_eumex"]
+[ext_resource type="Texture2D" uid="uid://cf1ykyj1pbdyf" path="res://assets/LightFX/FX003/FX003_03.png" id="5_8k0ki"]
+[ext_resource type="Texture2D" uid="uid://djea4iepwpp60" path="res://assets/LightFX/FX003/FX003_04.png" id="6_6c2nk"]
+[ext_resource type="Texture2D" uid="uid://do126d8151yx1" path="res://assets/LightFX/FX003/FX003_05.png" id="7_ec8ki"]
+[ext_resource type="AudioStream" uid="uid://7648ah2ixhci" path="res://assets/audio/electric_zap.mp3" id="8_1bgu3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwopg"]
+atlas = ExtResource("2_sai80")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1ui0"]
+atlas = ExtResource("3_1ytyc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qphpm"]
+atlas = ExtResource("4_eumex")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa2k7"]
+atlas = ExtResource("5_8k0ki")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct7vp"]
+atlas = ExtResource("6_6c2nk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y26rh"]
+atlas = ExtResource("7_ec8ki")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgnsj"]
+atlas = ExtResource("2_sai80")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a4rjm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwopg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1ui0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qphpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa2k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct7vp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y26rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgnsj")
+}],
+"loop": false,
+"name": &"zap",
+"speed": 7.0
+}]
+
+[node name="zap" type="Area2D"]
+script = ExtResource("1_7ro13")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a4rjm")
+animation = &"zap"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_1bgu3")
+volume_db = -20.0

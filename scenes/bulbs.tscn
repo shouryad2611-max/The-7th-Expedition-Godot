@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://djsa8grne217k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp68i"]
+
+[node name="bulbs" type="Area2D" groups=["anomaly"]]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dp68i")
+frame_progress = 0.212037

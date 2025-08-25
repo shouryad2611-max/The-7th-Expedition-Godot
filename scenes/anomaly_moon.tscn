@@ -1,0 +1,107 @@
+[gd_scene load_steps=22 format=3 uid="uid://bv0j03kni4apc"]
+
+[ext_resource type="Script" uid="uid://dby4s5i43f6d8" path="res://scripts/anomaly_moon.gd" id="1_hid5u"]
+[ext_resource type="Texture2D" uid="uid://b8n6vxn3rhgik" path="res://assets/Moon_Phase_1_Alt.png" id="1_md078"]
+[ext_resource type="Texture2D" uid="uid://blgsuowc0dsou" path="res://assets/Moon_Phase_2_Alt.png" id="2_rj4f8"]
+[ext_resource type="Texture2D" uid="uid://vickxttnpyk6" path="res://assets/Moon_Phase_3_Alt.png" id="3_rgwwq"]
+[ext_resource type="Texture2D" uid="uid://6of3cpq8mtfc" path="res://assets/Moon_Phase_4_Alt.png" id="4_wths5"]
+[ext_resource type="Texture2D" uid="uid://d2fumadlvhe04" path="res://assets/Moon_Phase_5_Alt.png" id="5_0rmsd"]
+[ext_resource type="Texture2D" uid="uid://douj5fyxgrdjn" path="res://assets/Moon_Phase_6_Alt.png" id="6_pgxmx"]
+[ext_resource type="Texture2D" uid="uid://bng665yihywb5" path="res://assets/Moon_Phase_7_Alt.png" id="7_44h3j"]
+[ext_resource type="Texture2D" uid="uid://dpny4kj4i1kj3" path="res://assets/Moon_Phase_8_Alt.png" id="8_xtijy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsdlg"]
+atlas = ExtResource("1_md078")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfv6a"]
+atlas = ExtResource("2_rj4f8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_225c3"]
+atlas = ExtResource("3_rgwwq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp3fo"]
+atlas = ExtResource("4_wths5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sudsb"]
+atlas = ExtResource("5_0rmsd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44e6t"]
+atlas = ExtResource("6_pgxmx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x28e6"]
+atlas = ExtResource("7_44h3j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p3sv"]
+atlas = ExtResource("8_xtijy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvav1"]
+atlas = ExtResource("1_md078")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lyk4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsdlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfv6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_225c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp3fo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sudsb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44e6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x28e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p3sv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvav1")
+}],
+"loop": true,
+"name": &"phases",
+"speed": 1.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_uyapa"]
+offsets = PackedFloat32Array(0, 0.826923)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nckvv"]
+gradient = SubResource("Gradient_uyapa")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="anomaly_moon" type="Node2D" groups=["anomaly"]]
+script = ExtResource("1_hid5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_md078")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_lyk4p")
+animation = &"phases"
+autoplay = "phases"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_nckvv")

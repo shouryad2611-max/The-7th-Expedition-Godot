@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcru001fjbio2"]
+
+[ext_resource type="Script" uid="uid://biveso4rj5dif" path="res://scripts/gravity_changer.gd" id="1_c1ra4"]
+
+[node name="gravity_changer" type="Node2D" groups=["anomaly"]]
+script = ExtResource("1_c1ra4")
